@@ -12,7 +12,30 @@ body {
 }
 
 .search-items:hover {
-    background-color: #f8f9fa;
+    background-color: #865199;
+}
+
+.list-group-item-info {
+    color: #865199;
+    background-color: #f4d6ff;
+}
+
+.bg-info {
+    background-color: #865199;
+}
+
+.btn-info {
+    color: #865199;
+    background-color: #f4d6ff;
+    border-color: #f4d6ff;
+}
+
+.text-info {
+    color: #865199!important;
+}
+
+.font-weight-bold {
+    color: #865199;
 }
 
 @media (min-width: 1200px) {
