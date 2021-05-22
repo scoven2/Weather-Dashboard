@@ -348,3 +348,21 @@ $(document).ready(function() {
         $("#search").val("");
     });
 });
+
+//event listener when resizing browser window
+$(window).resize(function() {
+
+    //pull current window width
+    var w = $(window).width();
+
+    //if windown is larger than 578px expand and show search history
+    if (w >= 578) {
+        $("#search-history").addClass("show");
+        $("#collapse-search-history").hide();
+    }
+    //if window is smaller than 578
+    else {
+        $("#search-history").removeClass("show");
+        $("#collapse-search-history").show();
+    }
+});
