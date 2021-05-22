@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+
+    <!--Header-->
+    <header class="bg-info p-4 mb-2 text-center">
+        <h1 class="font-weight-bold text-white">
+            <i class="fas fa-cloud-sun mr-1"></i> Weather Dashboard
+        </h1>
+        <p id="today" class="h4 text-white"></p>
+    </header>
+
+    <!--Container-->
+    <div class="container">
+        <div class="row">
+
+            <!--Search and Search History-->
+            <aside class="col-sm-4 bg-light px-2 my-3 rounded">
+
+                <!--Search-->
+                <form id="search-form" class="form-group mt-1 pt-1">
+                    <input id="search" class="form-control" type="text" placeholder="Enter City" aria-label="Search" />
+                    <button id="search-btn" class="btn btn-block btn-info mt-3" type="submit">Search
+                        <i class="fas fa-search ml-1"></i>
+                    </button>
+                </form>
+
+                <!--Previous Search button-->
+                <button id="collapse-search-history" class="btn btn-clock btn-info" type="button" data-toggle="collapse" data-target="#search-history" aria-expanded="false" aria-controls="collapseExample">Previous Searches
+                </button>
+
+                <!--Search History-->
+                <ul id="search-history" class="list-group collapse mt-3">
+                    <li id="delete-history" class="list-group-item list-group-item-info font-weight-bold">
+                        <i class="fas fa-trash-alt mr-1"></i>Delete History
+                    </li>
+                </ul>
+            </aside>
+
+
+        </div>
+    </div>
+</body>
+
+</html>
