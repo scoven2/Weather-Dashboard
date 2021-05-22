@@ -160,4 +160,43 @@ $(document).ready(function() {
             return icons[index].night;
         }
     }
+
+    //Show current weather
+    function displayCurrentWeather(data) {
+
+        //display text
+        $("#city").text(data.current.name);
+        $("#conditions").text(data.current.weather[0].main);
+        $("#temperature").text(`${parseInt(data.current.main.temp)}\u00B0 F`);
+        $("#humidity").text(`${data.current.main.humidity}%`);
+        $("#wind-speed").text(`${data.current.wind.speed} mph`);
+
+        //pulls Font Awesome icon
+        var newIcon = replaceIcon(data.current.weather[0].icon);
+        $("#icon").removeClass().addClass(`h2 ${newIcon}`);
+    }
+
+    // UVI color change
+    function displayUV(data) {
+
+        //text
+        $("#uv-index").text(data.value);
+
+        //remove current color
+        $("#uv-index").removeClass("bg-success bg-warning bg-danger")
+
+        //chooses correct color
+        if (data.value < 3) {
+            $("#uv-index").addClass("bg-success");
+
+        } else if (data.value >= 3 && data.value < 6) {
+            $("#uv-index").addClass("bg-warning");
+
+        } else if (data.value >= 6) {
+            $("#uv-index").addClass("bg-danger");
+
+        } else {
+            console.log("Invalid UV Index Value");
+        }
+    }
 });
