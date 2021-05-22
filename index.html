@@ -45,7 +45,76 @@
                 </ul>
             </aside>
 
+            <!--Weather Dashboard-->
+            <main class="col-sm-8 px-2 mt-3">
 
+                <!--Current weather data-->
+                <section class="card">
+
+                    <!--Current city-->
+                    <div class="card-header d-flex align-items-center list-group-item-info">
+                        <p id="city" class="h2 my-0 mr-2"></p>
+                        <i id="icon" class=""></i>
+                    </div>
+
+                    <div class="card-body py-0">
+
+                        <!--Current conditions-->
+                        <div class="row d-flex align-items-center py-3">
+                            <div class="col-8 col-md-6 col-lg-4">
+                                <p class="h5 font-weight-bold m-0">Conditions:</p>
+                            </div>
+                            <div class="col-4 col-md-6 col-lg-8 px-0">
+                                <p id="conditions" class="h5 font-weight-light m-0"></p>
+                            </div>
+                        </div>
+
+                        <!--Current temp-->
+                        <div class="row bg-light d-flex align-items-center py-3">
+                            <div class="col-8 col-md-6 col-lg-4">
+                                <p class="h5 font-weight-bold m-0">Temperature:</p>
+                            </div>
+                            <div class="col-4 col-md-6 col-lg-8 px-0">
+                                <p id="temperature" class="h5 font-weight-light m-0"></p>
+                            </div>
+                        </div>
+
+                        <!--Current Humidity-->
+                        <div class="row d-flex align-items-center py-3">
+                            <div class="col-8 col-md-6 col-lg-4">
+                                <p class="h5 font-weight-bold m-0">Humidity:</p>
+                            </div>
+                            <div class="col-4 col-md-6 col-lg-8 px-0">
+                                <p id="humidity" class="h5 font-weight-light m-0"></p>
+                            </div>
+                        </div>
+
+                        <!--Current Wind Speed-->
+                        <div class="row bg-light d-flex align-items-center py-3">
+                            <div class="col-8 col-md-6 col-lg-4">
+                                <p class="h5 font-weight-bold m-0">Wind Speed:</p>
+                            </div>
+                            <div class="col-4 col-md-6 col-lg-8 px-0">
+                                <p id="wind-speed" class="h5 font-weight-light m-0"></p>
+                            </div>
+                        </div>
+
+                        <!--Current UV index-->
+                        <div class="row d-flex align-items-center py-3">
+                            <div class="col-8 col-md-6 col-lg-4">
+                                <p class="h5 font-weight-bold m-0">UV Index:</p>
+                            </div>
+                            <div class="col-4 col-md-6 col-lg-8 px-0">
+                                <p class="h5 m-0">
+                                    <span id="uv-index" class="font-weight-light py-1 px-2 rounded"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+            </main>
         </div>
     </div>
 </body>
