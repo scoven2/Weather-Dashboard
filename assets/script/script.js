@@ -304,4 +304,47 @@ $(document).ready(function() {
     function setSearchHisotry() {
         localStorage.setItem("cities", JSON.stringify(cities));
     }
+
+    //even listener to delete search history 
+    $("#delete-history").on("click", function() {
+
+        //delete from main page
+        $(".search-item").remove();
+
+        //delete from local storage array
+        cities.splice(0, cities.length - 1);
+
+        //resets search history
+        setSearchHisotry();
+    });
+
+    //event listener pull weather for cities in search history 
+    $("#search-history").on("click", ".search-item", function() {
+        getWeather($(this).text());
+    });
+
+    // even listener search button 
+    $("#search-form").on("submit", function(event) {
+        event.preventDefault();
+
+        var city = $("#search").val();
+
+        //makes sure city is entered to search
+        if (city === "") {
+            console.log("Invalid City");
+            return;
+        }
+
+        //pull weather data from API
+        getWeather(city);
+
+        //add city to search history user can see
+        displayCity(city);
+
+        //saves city to local storage
+        saveToHistory(city);
+
+        //clears and resets input fields
+        $("#search").val("");
+    });
 });
