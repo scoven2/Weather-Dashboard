@@ -269,4 +269,39 @@ $(document).ready(function() {
 
         return fiveDayForecast;
     }
+
+    //show city under search history on page for users to see
+    function displayCity(city) {
+        var li = $("<li>");
+        li.addClass("list-group-item search-item");
+        li.text(city);
+        $("#search-history").prepend(li);
+    }
+
+    // save city to search history
+    function saveToHistory(city) {
+
+        //add  cities save under local history to cities array
+        getSearchHistory();
+
+        //add cities to local storage array
+        cities.push(city);
+
+        //set local storage
+        setSearchHisotry()
+    }
+
+    //pull in cities saves in local storage
+    function getSearchHistory() {
+        if (localStorage.getItem("cities") === null) {
+            cities = [];
+        } else {
+            cities = JSON.parse(localStorage.getItem("cities"));
+        }
+    }
+
+    //set local storage
+    function setSearchHisotry() {
+        localStorage.setItem("cities", JSON.stringify(cities));
+    }
 });
