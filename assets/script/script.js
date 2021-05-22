@@ -135,7 +135,7 @@ $(document).ready(function() {
             data: {
                 lat: coordinates.lat,
                 lon: coordinates.lon,
-                appid: APIKey,
+                appid: APIKey
             }
         }).then(function(response) {
             displayUV(response);
@@ -288,7 +288,7 @@ $(document).ready(function() {
         cities.push(city);
 
         //set local storage
-        setSearchHistory()
+        setSearchHistory();
     }
 
     //pull in cities saved in local storage
