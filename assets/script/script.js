@@ -199,4 +199,42 @@ $(document).ready(function() {
             console.log("Invalid UV Index Value");
         }
     }
+
+    // shows 5 day forcast
+    function displayForecast(data) {
+
+        // Make 5 day forcast from 3 hour blocks from api
+        var forecast = createForecast(data)
+
+        // add 5 day forcast data
+        $.each(forecast, function(i, day) {
+
+            // date format
+            var date = dayjs(day.dt_txt).format("MMM. D");
+            var year = dayjs(day.dt_txt).format("YYYY");
+
+            // us Font Awesome icons
+            var iconClasses = replaceIcon(day.weather[0].icon);
+            $(`#day-${i + 1}-icon`).removeClass().addClass(`h2 text-info ${iconClasses}`);
+
+            // basic text field
+            $(`#day-${i + 1}-date`).text(date);
+            $(`#day-${i + 1}-year`).text(year);
+            $(`#day-${i + 1}-conditions`).text(day.weather[0].main);
+            $(`#day-${i + 1}-temp`).text(`${parseInt(day.main.temp)}\u00B0 F`);
+            $(`#day-${i + 1}-humidity`).text(`${day.main.humidity}% Humidity`);
+        });
+    }
+
+    // makes 5 day forcast from api data
+    function createForecast(data) {
+        var forcastData = data.forecast.list;
+        var fiveDayForecast = [];
+
+        //pull hour and date
+        var firstResult = {
+            date: dayjs(data.forecast.list[0].dt_txt).date(),
+            hour: dayjs(data.forecast.list[0].dt_txt).hour()
+        };
+    }
 });
