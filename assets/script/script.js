@@ -236,5 +236,37 @@ $(document).ready(function() {
             date: dayjs(data.forecast.list[0].dt_txt).date(),
             hour: dayjs(data.forecast.list[0].dt_txt).hour()
         };
+
+        //API pulls forcast data with 3 hour increments. this determines which increment to disply.
+        if (firstResult.hour === 6) {
+            for (var i = 10; i < forecastData.length; i += 8) {
+                fiveDayForecast.push(forecastData[i]);
+            }
+
+            fiveDayForecast.push(forecastData[38]);
+
+        } else if (firstResult.hour <= 09 && firstResult.hour >= 12) {
+            for (var i = 9; i < forecastData.length; i += 8) {
+                fiveDayForecast.push(forecastData[i]);
+            }
+
+            fiveDayForecast.push(forecastData[39]);
+
+        } else {
+            var firstNoonIndex = forecastData.findIndex(function(forecast) {
+                var isTomorrow = dayjs().isBefore(forecast.dt_txt);
+                var hour = dayjs(forecast.dt_txt).hour();
+
+                if (isTomorrow && hour === 12) {
+                    return true;
+                }
+            });
+
+            for (var i = firstNoonIndex; i < forecastData.length; i += 8) {
+                fiveDayForecast.push(forecastData[i]);
+            }
+        }
+
+        return fiveDayForecast;
     }
 });
