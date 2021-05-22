@@ -4,7 +4,7 @@ $(document).ready(function() {
     var cities = [];
     var currentCity;
     var now = dayjs();
-    var currentDate = now.format("dddd MMMM. D, YYYY");
+    var currentDate = now.format("dddd MMM. D, YYYY");
     var baseURL = "https://api.openweathermap.org/data/2.5/";
     var APIKey = "f4d6848eb3a488816cecbd2392d8a108";
     var units = "imperial";
@@ -112,17 +112,17 @@ $(document).ready(function() {
             displayCurrentWeather(responseData);
         });
 
-        // 5 day forcast
+        // 5 day forecast
         $.ajax({
-            url: baseURL + "forcast",
+            url: baseURL + "forecast",
             method: "GET",
             data: {
                 q: city,
                 units: units,
-                appid: APIKey,
+                appid: APIKey
             }
         }).then(function(response) {
-            responseData.current = response;
+            responseData.forecast = response;
             displayForecast(responseData);
         });
     }
@@ -204,7 +204,7 @@ $(document).ready(function() {
     function displayForecast(data) {
 
         // Make 5 day forcast from 3 hour blocks from api
-        var forecast = createForecast(data)
+        var forecast = createForecast(data);
 
         // add 5 day forcast data
         $.each(forecast, function(i, day) {
@@ -228,7 +228,7 @@ $(document).ready(function() {
 
     // makes 5 day forcast from api data
     function createForecast(data) {
-        var forcastData = data.forecast.list;
+        var forecastData = data.forecast.list;
         var fiveDayForecast = [];
 
         //pull hour and date
@@ -288,10 +288,10 @@ $(document).ready(function() {
         cities.push(city);
 
         //set local storage
-        setSearchHisotry()
+        setSearchHistory()
     }
 
-    //pull in cities saves in local storage
+    //pull in cities saved in local storage
     function getSearchHistory() {
         if (localStorage.getItem("cities") === null) {
             cities = [];
@@ -301,7 +301,7 @@ $(document).ready(function() {
     }
 
     //set local storage
-    function setSearchHisotry() {
+    function setSearchHistory() {
         localStorage.setItem("cities", JSON.stringify(cities));
     }
 
@@ -315,7 +315,7 @@ $(document).ready(function() {
         cities.splice(0, cities.length - 1);
 
         //resets search history
-        setSearchHisotry();
+        setSearchHistory();
     });
 
     //event listener pull weather for cities in search history 
