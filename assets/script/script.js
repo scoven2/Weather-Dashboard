@@ -142,4 +142,22 @@ $(document).ready(function() {
         });
     }
 
+    // Font Awesome icons
+    function replaceIcon(iconCode) {
+        var number = iconCode.slice(0, 2);
+        var dayOrNight = iconCode.slice(2);
+        var currentHour = dayjs().hour();
+
+        //pull icon
+        var index = icons.findIndex(function(icon, index) {
+            return icon.code === number;
+        });
+
+        //use day or night icon
+        if (currentHour >= 06 && currentHour < 18) {
+            return icons[index].day;
+        } else {
+            return icons[index].night;
+        }
+    }
 });
