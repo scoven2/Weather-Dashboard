@@ -17,7 +17,6 @@ An application that allows the user to lookup the weather of the city of their c
 ## APIs
 * Bootstrap
 * JQuery
-* Luxon
 * Google Fonts
 * Font Awesome
 * Cloudflare
