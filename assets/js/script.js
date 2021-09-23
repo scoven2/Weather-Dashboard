@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-  // Variables
   var cities = [];
   var currentDay= $("#current-day");
   var presentCities = $("#presentCities");
@@ -8,7 +7,7 @@ $(document).ready(function() {
   var fullDate = moment().format("MMMM Do YYYY ");
   $("#weatherDashboard").append(fullDate);
   var queryCurrent = "https://api.openweathermap.org/data/2.5/weather?q=";
-  var queryFiveDay = "https://api.openweathermap.org/data/2.5/forcast?q=";
+  var queryFiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=";
   var UV = "https://api.openweathermap.org/data/2.5/uvi?"
   var imgApi = "https://openweathermap.org/img/w/";
   var appID = "&appid=f4d6848eb3a488816cecbd2392d8a108";
@@ -35,7 +34,7 @@ $(document).ready(function() {
         $("#error").html("");
         currentDay.html("");
         currentDay.append("<h2>" + city + "</h2>");
-        currentDay.append("<p>" + city + "</p>");
+        currentDay.append("<p>" + now + "</p>");
         var show = showData(data);
         currentDay.append(show);
         getFiveDay(city)
@@ -87,23 +86,23 @@ $(document).ready(function() {
         dataType: "jsonp",
       }).then(function(data) {
         var showFiveDays = showFiveDay(data);
-        $("#forcast .day").append(showFiveDays);
+        $("#forecast .day").append(showFiveDays);
       });
     } else {
       $("error").html("Field must be filled");
     }
   }
   function showFiveDay(data) {
-    var cardForecast =$("#cardsForcast")
+    var cardForecast =$("#cardsForecast")
     cardForecast.html("");
     for (let i = 0; i < 5; i++) {
       var new_date = moment().add(i, "days").format("dddd");
-      let forcast = function(data) {
+      let forecast = function(data) {
         return (
-          '<div class="col-sm-12 col-md-6 col-lg-2">' + '<p class"date"></p>' + new_date + "<img src=" + imgAPI + data.list[i * 8].weather[0].icon + ".png alt=" + data.list[i * 8].weather.description + 'width="50" height="50">' + '<p class="temperature">Temp: ' + Math.trunc(data.list[i * 8].main.temp_max) + "&nbsp;&deg;F</p>" + '<p class="humidity">Humidity: ' + data.list[i * 8].main.humidity + "%</p>" + "</div>"
+          '<div class="col-sm-12 col-md-6 col-lg-2">' + '<p class"date"></p>' + new_date + "<img src=" + imgApi + data.list[i * 8].weather[0].icon + ".png alt=" + data.list[i * 8].weather.description + 'width="50" height="50">' + '<p class="temperature">Temp: ' + Math.trunc(data.list[i * 8].main.temp_max) + "&nbsp;&deg;F</p>" + '<p class="humidity">Humidity: ' + data.list[i * 8].main.humidity + "%</p>" + "</div>"
         );
       };
-      cardForecast.append(forcast(data));
+      cardForecast.append(forecast(data));
     }
   }
   $("#btn-search").click(function() {
