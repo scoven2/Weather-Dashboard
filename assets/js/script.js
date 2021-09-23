@@ -50,5 +50,10 @@ $(document).ready(function() {
       $("#error").html("Must enter city");
     }
   }
-  
+  function showData(data) {
+    UVIndex(data);
+    return (
+      "<h2>" + data.weather[0].main + "</h2>" + "<img src=" + imgApi + data.weather[0].icon + ".png alt=" + data.weather.value + 'width="50" height="50"></img>' + '<p class="humidity"> Humidity: ' + data.main.humidity + "%</p>" + '<p class="temperature">Temperature: ' + Math.trunc(data.main.temp_max) + "&deg;F</p>" + '<p class="wind-speed">Wind Speed: ' + data.wind.speed + " m/h</p>"
+    )
+  }
 });
