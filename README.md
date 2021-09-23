@@ -1,4 +1,4 @@
-# Work-Day-Scheduler
+# Weather-Dashboard
 
 # Description
 An application that allows the user to lookup the weather of the city of their choice. In addition to showing the current weather, the site also displays the upcoming 5 day weather forcast. The users searches a city, and OpenWeather's api pulls in the results and displays them on the page. Previous searches are saved under local storage and displayed on the side of the page, until the user decides to delete their search history.
