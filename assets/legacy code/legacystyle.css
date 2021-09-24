@@ -1,0 +1,36 @@
+body {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.list-group-item+.list-group-item,
+.list-group-item:first-child {
+    color: #865199;
+    background-color: #f4d6ff;
+}
+
+.list-group-item+.list-group-item:hover,
+.list-group-item:first-child:hover {
+    color: #f4d6ff;
+    background-color: #865199;
+}
+
+
+.bg-dark{
+    color: white;
+    background-color:#865199!important;
+    font-weight: bolder;
+}
+
+.btn {
+    background-color: #865199;
+    color: #f4d6ff;
+}
+
+.btn:hover {
+    background-color: #f4d6ff;
+    color: #865199;
+}
+
+.jumbotron {
+    background-color: #f4d6ff;
+}

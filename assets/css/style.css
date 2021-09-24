@@ -1,93 +1,36 @@
 body {
-    font-family: "Open Sans", Arial, Helvetica, sans-serif;
-}
-
-.container {
-    padding-bottom: 40px;
-}
-
-.search-items,
-#delete-history {
-    cursor: pointer;
-}
-
-.search-items:hover {
-    background-color: #865199;
-}
-
-.list-group-item-info {
-    color: #865199;
-    background-color: #f4d6ff;
-}
-
-.bg-info {
-    background-color: #865199!important;
-}
-
-.btn-info {
-    color: #f4d6ff;
-    background-color: #865199;
-    border-color: #865199;
-}
-
-.btn-info:hover {
-    background-color: #f4d6ff;
-    border-color: #865199;
-    color: #865199;
-}
-
-.text-info {
-    color: #865199!important;
-}
-
-.font-weight-bold {
-    color: #865199;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 .list-group-item+.list-group-item,
 .list-group-item:first-child {
-    color: #865199;
-    background-color: #f4d6ff;
+  color: #865199;
+  background-color: #f4d6ff;
 }
 
 .list-group-item+.list-group-item:hover,
 .list-group-item:first-child:hover {
-    color: #f4d6ff;
-    background-color: #865199;
+  color: #f4d6ff;
+  background-color: #865199;
 }
 
-#delete-history {
-    color: #f4d6ff;
-    background-color: #865199;
-    border-color: #865199;
+
+.bg-dark{
+  color: white;
+  background-color:#865199!important;
+  font-weight: bolder;
 }
 
-#delete-history:hover {
-    background-color: #f4d6ff;
-    border-color: #f4d6ff;
-    color: #865199;
+.btn {
+  background-color: #865199;
+  color: #f4d6ff;
 }
 
-@media (min-width: 1200px) {
-    .five-day-card {
-        max-width: 20%;
-    }
+.btn:hover {
+  background-color: #f4d6ff;
+  color: #865199;
 }
 
-@media (max-width: 1200px) {
-    .five-day-card {
-        min-width: 30%;
-    }
-}
-
-@media (max-width: 992px) {
-    .five-day-card {
-        min-width: 40%;
-    }
-}
-
-@media (max-width: 335px) {
-    .five-day-card {
-        min-width: 90%;
-    }
+.jumbotron {
+  background-color: #f4d6ff;
 }
