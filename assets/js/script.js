@@ -126,10 +126,10 @@ let displayWeather = function(getWeather, searchCity) {
   tempEl.textContent = "Temperature: " + weather.main.temp + " °F ";
   
   let humidityEl = document.createElement("span");
-  humidityEl.textContent = "Humidity: " = weather.main.humidity + " %";
+  humidityEl.textContent = " Humidity: " = weather.main.humidity + " % ";
 
   let windEl = document.createElement("span");
-  windEl.textContent = "Wind Speed: " + weather.wind.speed + " MPH";
+  windEl.textContent = " Wind Speed: " + weather.wind.speed + " MPH ";
 
   currentWeatherEl.appendChild(tempEl);
   currentWeatherEl.appendChild(humidityEl);
@@ -160,7 +160,7 @@ let displayWeather = function(getWeather, searchCity) {
 //       });
 //   }
 let getUV = function(lat, lon) {
-  let apiURL = `https://api.openweathermap.org/data/2.5/uvi?appid=$844421298d794574c100e3409cee0499&lat=${lat}&lon=${lon}`
+  let apiURL = `https://api.openweathermap.org/data/2.5/uvi?appid=844421298d794574c100e3409cee0499&lat=${lat}&lon=${lon}`
   fetch(apiURL)
     .then(function(response) {
       response.json()
@@ -168,4 +168,55 @@ let getUV = function(lat, lon) {
           showUV(data);
         });
     });
-}
+};
+
+//based on unit 6 activity 21
+// var displayRepos = function (repos, searchTerm) {
+//     if (repos.length === 0) {
+//       repoContainerEl.textContent = 'No repositories found.';
+//       return;
+//     }
+
+//     repoSearchTerm.textContent = searchTerm;
+
+//     for (var i = 0; i < repos.length; i++) {
+//       var repoName = repos[i].owner.login + '/' + repos[i].name;
+
+//       var repoEl = document.createElement('div');
+//       repoEl.classList = 'list-item flex-row justify-space-between align-center';
+
+//       var titleEl = document.createElement('span');
+//       titleEl.textContent = repoName;
+
+//       repoEl.appendChild(titleEl);
+
+//       var statusEl = document.createElement('span');
+//       statusEl.classList = 'flex-row align-center';
+
+//       if (repos[i].open_issues_count > 0) {
+//         statusEl.innerHTML =
+//           "<i class='fas fa-times status-icon icon-danger'></i>" + repos[i].open_issues_count + ' issue(s)';
+//       } else {
+//         statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
+//       }
+
+//       repoEl.appendChild(statusEl);
+
+//       repoContainerEl.appendChild(repoEl);
+//     }
+//   };
+let showUV = function(index) {
+  let uvEl = document.createElement("div");
+  uvEl.textContent = "UV Index: "
+  uvValue = document.createElement("span");
+  uvValue.textContent = index.value;
+  if (index.value <= 2) {
+    uvValue.classList = "low"
+  } else if (index.value > 2 && index.value <=8) {
+    uvValue.classList = "moderate"
+  } else if (index.value > 8) {
+    uvValue.classList = "high"
+  };
+  uvEl.appendChild(uvValue);
+  currentWeatherEl.appendChild(uvEl);
+};
