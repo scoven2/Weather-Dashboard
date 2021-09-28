@@ -220,3 +220,28 @@ let showUV = function(index) {
   uvEl.appendChild(uvValue);
   currentWeatherEl.appendChild(uvEl);
 };
+
+//based on unit 6 activity 21
+// var getFeaturedRepos = function (language) {
+//     var apiUrl = 'https://api.github.com/search/repositories?q=' + language + '+is:featured&sort=help-wanted-issues';
+
+//     fetch(apiUrl).then(function (response) {
+//       if (response.ok) {
+//         response.json().then(function (data) {
+//           displayRepos(data.items, language);
+//         });
+//       } else {
+//         alert('Error: ' + response.statusText);
+//       }
+//     });
+//   };
+let getFiveDay = function(city) {
+  let apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=844421298d794574c100e3409cee0499`
+  fetch(apiURL)
+    .then(function(response) {
+      response.json()
+        .then(function(data) {
+          displayFiveDay(data);
+        });
+    });
+};
