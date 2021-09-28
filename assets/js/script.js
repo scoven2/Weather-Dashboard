@@ -75,3 +75,67 @@ let getWeather = function(city) {
     })
 };
 
+//based on unit 6 activity 21
+// var displayRepos = function (repos, searchTerm) {
+//     if (repos.length === 0) {
+//       repoContainerEl.textContent = 'No repositories found.';
+//       return;
+//     }
+
+//     repoSearchTerm.textContent = searchTerm;
+
+//     for (var i = 0; i < repos.length; i++) {
+//       var repoName = repos[i].owner.login + '/' + repos[i].name;
+
+//       var repoEl = document.createElement('div');
+//       repoEl.classList = 'list-item flex-row justify-space-between align-center';
+
+//       var titleEl = document.createElement('span');
+//       titleEl.textContent = repoName;
+
+//       repoEl.appendChild(titleEl);
+
+//       var statusEl = document.createElement('span');
+//       statusEl.classList = 'flex-row align-center';
+
+//       if (repos[i].open_issues_count > 0) {
+//         statusEl.innerHTML =
+//           "<i class='fas fa-times status-icon icon-danger'></i>" + repos[i].open_issues_count + ' issue(s)';
+//       } else {
+//         statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
+//       }
+
+//       repoEl.appendChild(statusEl);
+
+//       repoContainerEl.appendChild(repoEl);
+//     }
+//   };
+let displayWeather = function(getWeather, searchCity) {
+  currentWeatherEl.textContent = "";
+  searchedEl.textContent = searchedCity;
+
+  let todaysDate = document.createElement("span");
+  todaysDate.textContent = " (" + moment(weather.dt.value).format("MMM D, YYYY") + "( ";
+  searchedEl.appendChild(todaysDate);
+
+  let weatherIcons = document.createElement("img");
+  weatherIcons.setAttribute("src", `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`);
+  searchedEl.appendChild(weatherIcons);
+
+  let tempEl = document.createElement("span");
+  tempEl.textContent = "Temperature: " + weather.main.temp + " °F ";
+  
+  let humidityEl = document.createElement("span");
+  humidityEl.textContent = "Humidity: " = weather.main.humidity + " %";
+
+  let windEl = document.createElement("span");
+  windEl.textContent = "Wind Speed: " + weather.wind.speed + " MPH";
+
+  currentWeatherEl.appendChild(tempEl);
+  currentWeatherEl.appendChild(humidityEl);
+  currentWeatherEl.appendChild(windEl);
+
+  let lat = weather.coord.lat;
+  let lon = weather.coord.lon;
+  getUV(lat, lon);
+};
