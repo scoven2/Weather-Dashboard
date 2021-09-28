@@ -139,3 +139,33 @@ let displayWeather = function(getWeather, searchCity) {
   let lon = weather.coord.lon;
   getUV(lat, lon);
 };
+
+
+//based on unit 6 activity 21
+// var getUserRepos = function (user) {
+//     var apiUrl = 'https://api.github.com/users/' + user + '/repos';
+
+//     fetch(apiUrl)
+//       .then(function (response) {
+//         if (response.ok) {
+//           response.json().then(function (data) {
+//             displayRepos(data, user);
+//           });
+//         } else {
+//           alert('Error: ' + response.statusText);
+//         }
+//       })
+//       .catch(function (error) {
+//         alert('Unable to connect to GitHub');
+//       });
+//   }
+let getUV = function(lat, lon) {
+  let apiURL = `https://api.openweathermap.org/data/2.5/uvi?appid=$844421298d794574c100e3409cee0499&lat=${lat}&lon=${lon}`
+  fetch(apiURL)
+    .then(function(response) {
+      response.json()
+        .then(function(data) {
+          showUV(data);
+        });
+    });
+}
