@@ -12,3 +12,34 @@ let forcastTitleEl = document.querySelector("#forecast");
 let searchedEl = document.querySelector("#searched");
 let fiveDayEl = document.querySelector("#fiveDay");
 let perviousSearchEl = document.querySelector("#previous-search");
+
+//based on unit 6 activity 24
+// var formSubmitHandler = function (event) {
+//     event.preventDefault();
+
+//     var username = nameInputEl.value.trim();
+
+//     if (username) {
+//       getUserRepos(username);
+
+//       repoContainerEl.textContent = '';
+//       nameInputEl.value = '';
+//     } else {
+//       alert('Please enter a GitHub username');
+//     }
+//   };
+let formSubmitHandler = function(event) {
+  event.preventDefault();
+  let city = cityEntryEl.value.trim();
+  if (city) {
+    getWeather(city);
+    getFiveDay(city);
+    cities({ city });
+    cityEntryEl.value = "";
+  } else {
+    alert("Enter a city to search");
+  }
+  savedSearch();
+  pastSearch(city);
+}
+
