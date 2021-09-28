@@ -43,3 +43,9 @@ let formSubmitHandler = function(event) {
   pastSearch(city);
 }
 
+//based on unit 4 activity 23
+//localStorage.setItem("studentGrade", JSON.stringify(studentGrade));
+//renderMessage();
+let saveSearch = function() {
+  localStorage.setItem("cities", JSON.stringify(cities));
+}
